@@ -1,0 +1,129 @@
+@custom-media --OSdark  (prefers-color-scheme: dark);
+@custom-media --OSlight (prefers-color-scheme: light);
+@custom-media --touch   (hover: none) and (pointer: coarse);
+@custom-media --mouse   (hover) and (pointer: fine);
+
+@custom-media --above-xxs (width >= 20.625em);
+@custom-media --above-xs  (width >= 22.5em);
+@custom-media --above-sm  (width >= 30em);
+@custom-media --above-md  (width >= 48em);
+@custom-media --above-lg  (width >= 64em);
+@custom-media --above-xl  (width >= 90em);
+@custom-media --above-xxl (width >= 120em);
+
+@custom-media --below-xxs (width < 20.625em);
+@custom-media --below-xs  (width < 22.5em);
+@custom-media --below-sm  (width < 30em);
+@custom-media --below-md  (width < 48em);
+@custom-media --below-lg  (width < 64em);
+@custom-media --below-xl  (width < 90em);
+@custom-media --below-xxl (width < 120em);
+
+:root {
+	--ff-primary      : 'Space Mono', monospace;
+	--ff-body         : var(--ff-primary);
+	--ff-heading      : var(--ff-primary);
+
+	--fw-normal       : 400;
+	--fw-bold         : 700;
+
+	--f-size-1        : 0.6875rem; // 11px
+	--f-size-2        : 0.8125rem; // 13px
+	--f-size-3        : 0.9375rem; // 15px
+	--f-size-4        : 1rem; // 16px
+	--f-size-5        : 1.125rem; // 18px
+	--f-size-6        : 1.375rem; // 22px
+	--f-size-7        : 1.625rem; // 26px
+
+	--f-size-fluid-1  : clamp(0.6875rem, 0.479rem + 0.694vw, 0.813rem); // 11px - 13px
+	--f-size-fluid-2  : clamp(0.8125rem, 0.604rem + 0.694vw, 0.938rem); // 13px - 15px
+	--f-size-fluid-3  : clamp(0.8125rem, 0.5rem + 1.042vw, 1rem); // 13px - 16px
+	--f-size-fluid-4  : clamp(0.8125rem, 0.292rem + 1.736vw, 1.125rem); // 13px - 18px
+	--f-size-fluid-5  : clamp(1rem, 0.375rem + 2.083vw, 1.375rem); // 16px - 22px
+	--f-size-fluid-6  : clamp(1rem, -0.042rem + 3.472vw, 1.625rem); // 16px - 26px
+
+	--line-height-1   : 1;
+	--line-height-2   : 1.25;
+	--line-height-3   : 1.5;
+
+	--size-1          : 0.3125rem; // 5px
+	--size-2          : 0.5rem; // 8px
+	--size-3          : 0.625rem; // 10px
+	--size-4          : 1rem; // 16px
+	--size-5          : 1.25rem; // 20px
+	--size-6          : 1.5rem; // 24px
+	--size-7          : 2rem; // 32px
+	--size-8          : 2.1875rem; // 35px
+	--size-9          : 2.5rem; // 40px
+	--size-10         : 3rem; // 48px
+
+	--size-fluid-1    : clamp(0.375rem, 0.167rem + 0.694vw, 0.5rem); // 6px - 9px
+	--size-fluid-2    : clamp(0.625rem, 0rem + 2.083vw, 1rem); // 10px - 16px
+	--size-fluid-3    : clamp(1rem, 0.583rem + 1.389vw, 1.25rem); // 16px - 20px
+	--size-fluid-4    : clamp(1rem, 0.167rem + 2.778vw, 1.5rem); // 16px - 24px
+	--size-fluid-5    : clamp(1.5rem, 0.667rem + 2.778vw, 2rem); // 24px - 32px
+	--size-fluid-6    : clamp(1.5rem, 0.354rem + 3.819vw, 2.188rem); // 24px - 35px
+	--size-fluid-7    : clamp(1.5rem, -0.167rem + 5.556vw, 2.5rem); // 24px - 40px
+	--size-fluid-8    : clamp(1.5rem, -1rem + 8.333vw, 3rem); // 24px - 48px
+	--size-fluid-9    : clamp(2rem, 0.333rem + 5.556vw, 3rem); // 32px - 48px
+
+	--size-xxs        : 20.625em; // 330px
+	--size-xs         : 22.5em; // 360px
+	--size-sm         : 30em; // 480px
+	--size-md         : 48em; // 768px
+	--size-lg         : 64em; // 1024px
+	--size-xl         : 90em; // 1440px
+	--size-xxl        : 120em; // 1920px
+
+	--size-content-1  : 22ch;
+	--size-content-2  : 45ch;
+	--size-content-3  : 60ch;
+
+	--radius-1        : 0.625rem;
+	--radius-2        : 1rem;
+	--radius-3        : 1.25rem;
+	--radius-circle   : 50%;
+	--radius-pill     : 100vmax;
+}
+
+[data-theme='light'] {
+
+}
+
+[data-theme='dark'] {
+
+}
+
+body {
+	font-family      : var(--ff-body);
+	font-size        : var(--f-size-fluid-3);
+	font-weight      : var(--fw-normal);
+	color            : var(--clr-secondary-1);
+	background-color : var(--clr-primary-2);
+	padding-block    : var(--size-fluid-9);
+}
+
+
+:where(a, button, input, select) {
+	--_outline-size  : var(--outline-size, max(1px, 0.15em));
+	--_outline-style : var(--outline-style, solid);
+	--_outline-color : var(--outline-color, currentColor);
+
+	text-decoration  : none;
+	color            : inherit;
+
+	&:focus-visible {
+		outline        : var(--_outline-size) var(--_outline-style) var(--_outline-color);
+		outline-offset : calc(var(--_outline-size) * 1 + 1px);
+	}
+}
+
+:where([class*=align],[class*=direction],[class*=justify]) {
+	display : grid
+}
+
+svg {
+	fill        : currentColor;
+	flex-shrink : 0;
+	block-size  : auto;
+}

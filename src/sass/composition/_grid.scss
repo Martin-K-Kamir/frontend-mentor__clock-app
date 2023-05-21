@@ -1,0 +1,5 @@
+.grid {
+	inline-size           : 100%;
+	display               : grid;
+	grid-template-columns : repeat(auto-fit, minmax(min(var(--size-content, 30ch), 100%), 1fr));
+}

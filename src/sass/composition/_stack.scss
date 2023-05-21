@@ -1,0 +1,27 @@
+.stack {
+	--_stack-size : var(--stack-size, var(--size, 1em));
+
+	display         : flex;
+	flex-direction  : column;
+	justify-content : flex-start;
+
+	& > :where(*, *:empty) {
+		margin-block : 0;
+	}
+
+	& > :where(*:not(:empty) + *:not(:empty)) {
+		margin-block-start : var(--_stack-size);
+	}
+
+	&[data-stack-first]> *:first-child {
+		margin-block-start : var(--_stack-size)
+	}
+
+	&[data-inherit-size] {
+		--stack-size : inherit;
+	}
+
+	&[data-initial-size] {
+		--stack-size : initial;
+	}
+}
