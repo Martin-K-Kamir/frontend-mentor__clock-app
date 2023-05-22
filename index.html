@@ -20,48 +20,59 @@
 
 </head>
 <body>
-<div class="wrapper">
-    <div>
+<div class="app">
+    <div class="wrapper">
         <div>
             <figure>
                 <blockquote>
-                    The science of operations, as derived from mathematics more especially, is a science of itself, and has its own abstract truth and value.
+                    The science of operations, as derived from mathematics more especially, is a science of itself, and has its own abstract truth and
+                    value.
                 </blockquote>
-                <figcaption>
+                <figcaption class="fw-bold">
                     Ada Lovelace
                 </figcaption>
-                <button>
-                    new quote
+                <button class="btn" data-type="icon" aria-label="new quote">
+
                 </button>
             </figure>
             <main>
-                <h1>
-                    <span class="f-size-fluid-4 fw-regular d-block">GOOD EVENING, IT’S CURRENTLY</span>
-                    <span class="f-size-fluid-8 fw-bold">23:14</span><span>BST</span>
-                    <span>IN LONDON, UK</span>
+                <h1 class="text-uppercase">
+                    <span class="f-size-fluid-4 f-spacing-3 fw-regular d-block">GOOD EVENING, IT’S CURRENTLY</span>
+                    <span class="d-block f-height-1">
+                        <span class="f-size-fluid-8 f-spacing-1 fw-bold">23:14</span>
+                        <span class="f-size-fluid-6 fw-light">BST</span>
+                    </span>
+                    <span class="f-size-fluid-5 f-spacing-3 fw-bold">IN LONDON, UK</span>
                 </h1>
             </main>
         </div>
         <div>
-            <button>More</button>
+            <button class="btn" data-type="primary">
+                more
+                <svg class="icon" focusable="false" width="1em" height="1em" aria-hidden="true">
+                    <use href="/assets/icons/icons.svg#arrow"/>
+                </svg>
+            </button>
         </div>
     </div>
-    <div>
-        <div>
-            <h2>CURRENT TIMEZONE</h2>
-            <p>Europe/London</p>
-        </div>
-        <div>
-            <h2>Day of the year</h2>
-            <p>295</p>
-        </div>
-        <div>
-            <h2>Day of the week</h2>
-            <p>5</p>
-        </div>
-        <div>
-            <h2>Week number</h2>
-            <p>42</p>
+    <div class="[  ] [ bg-primary clr-secondary ]">
+        <div class="wrapper">
+            <div>
+                <h2 class="f-size-fluid-1 f-spacing-3 fw-regular text-uppercase">CURRENT TIMEZONE</h2>
+                <p class="f-size-fluid-7 fw-bold">Europe/London</p>
+            </div>
+            <div>
+                <h2 class="f-size-fluid-1 f-spacing-3 fw-regular text-uppercase">Day of the year</h2>
+                <p class="f-size-fluid-7 fw-bold">295</p>
+            </div>
+            <div>
+                <h2 class="f-size-fluid-1 f-spacing-3 fw-regular text-uppercase">Day of the week</h2>
+                <p class="f-size-fluid-7 fw-bold">5</p>
+            </div>
+            <div>
+                <h2 class="f-size-fluid-1 f-spacing-3 fw-regular text-uppercase">Week number</h2>
+                <p class="f-size-fluid-7 fw-bold">42</p>
+            </div>
         </div>
     </div>
 </div>

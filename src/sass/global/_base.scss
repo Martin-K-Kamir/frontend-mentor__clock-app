@@ -28,6 +28,15 @@
 	--ff-body        : var(--ff-primary);
 	--ff-heading     : var(--ff-primary);
 
+	--f-height-1  : 0.975;
+	--f-height-2  : 1.25;
+	--f-height-3  : 1.5;
+
+	--f-spacing-1    : -0.025em;
+	--f-spacing-2    : -0.015em;
+	--f-spacing-3    : 0.15em;
+	--f-spacing-4    : 0.25em;
+
 	--fw-light       : 300;
 	--fw-regular     : 400;
 	--fw-medium      : 500;
@@ -41,10 +50,6 @@
 	--f-size-fluid-6 : clamp(0.938rem, -0.441rem + 4.596vw, 2.5rem); // 15px - 40px
 	--f-size-fluid-7 : clamp(1.25rem, -0.735rem + 6.618vw, 3.5rem); // 20px - 56px
 	--f-size-fluid-8 : clamp(6.25rem, 0.735rem + 18.382vw, 12.5rem); // 100px - 200px
-
-	--line-height-1  : 1;
-	--line-height-2  : 1.25;
-	--line-height-3  : 1.5;
 
 	--size-1         : 0.3125rem; // 5px
 	--size-2         : 0.625rem; // 10px
@@ -79,8 +84,8 @@
 }
 
 [data-theme='dark'] {
-	--clr-primary    : var(--clr-black);
-	--clr-secondary  : var(--clr-white);
+	--clr-primary   : var(--clr-black);
+	--clr-secondary : var(--clr-white);
 }
 
 body {

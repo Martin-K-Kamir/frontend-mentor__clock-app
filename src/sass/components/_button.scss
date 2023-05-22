@@ -1,0 +1,48 @@
+
+.btn {
+	--_font-size     : var(--btn-f-size, var(--f-size, 1rem));
+	--_font-weight   : var(--btn-f-weight, var(--f-weight, bold));
+	--_clr           : var(--btn-clr, var(--clr, hsl(0, 0%, 0%)));
+	--_bg            : var(--btn-bg, var(--bg, hsl(0, 0%, 100%)));
+
+	display          : inline-flex;
+	align-items      : center;
+	gap: 0.5em;
+	cursor           : pointer;
+	border           : none;
+	user-select      : none;
+
+	font-size        : var(--_font-size);
+	font-weight      : var(--_font-weight);
+	line-height      : 1;
+
+	color            : var(--_clr);
+	background-color : var(--_bg);
+
+	@media (--mouse) {
+		&:hover {
+		}
+	}
+
+	svg {
+		flex-shrink : 0;
+	}
+}
+
+[data-type='primary'].btn {
+	--f-size       : var(--f-size-fluid-2);
+	--clr          : var(--clr-gray, gray);
+
+	padding        : 0.5em 1.25em;
+	text-transform : uppercase;
+	letter-spacing : var(--f-spacing-3);
+	border-radius  : 100vmax;
+
+	svg {
+		background-color : var(--clr);
+		border-radius    : 50%;
+		stroke           : var(--clr-white);
+		padding          : 0.25em;
+		font-size: 2em;
+	}
+}

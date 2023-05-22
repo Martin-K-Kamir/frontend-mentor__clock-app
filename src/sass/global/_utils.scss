@@ -40,13 +40,13 @@
 }
 
 .bg-primary {
-	background-color : var(--bg-primary);
-	--bg             : var(--bg-primary);
+	background-color : var(--clr-primary);
+	--bg             : var(--clr-primary);
 }
 
 .bg-secondary {
-	background-color : var(--bg-secondary);
-	--bg             : var(--bg-secondary);
+	background-color : var(--clr-secondary);
+	--bg             : var(--clr-secondary);
 }
 
 ///////////////////// Sizes /////////////////////
@@ -79,7 +79,7 @@
 }
 
 .f-size-fluid-8 {
-	font-size : var(--f-size-fluid-7);
+	font-size : var(--f-size-fluid-8);
 }
 
 .size-initial {
@@ -202,6 +202,33 @@
 	font-weight : var(--fw-bold)
 }
 
+.f-height-1 {
+	line-height : var(--f-height-1)
+}
+
+.f-height-2 {
+	line-height : var(--f-height-2)
+}
+
+.f-height-3 {
+	line-height : var(--f-height-3)
+}
+
+.f-spacing-1 {
+	letter-spacing : var(--f-spacing-1)
+}
+
+.f-spacing-2 {
+	letter-spacing : var(--f-spacing-2)
+}
+
+.f-spacing-3 {
+	letter-spacing : var(--f-spacing-3)
+}
+
+.f-spacing-4 {
+	letter-spacing : var(--f-spacing-4)
+}
 
 ////////// Alignment and Justification //////////
 .d-block {
