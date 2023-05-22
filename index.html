@@ -5,6 +5,19 @@
     <link rel="icon" type="image/svg+xml" href="/vite.svg"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Vite App</title>
+
+    <link crossorigin href="https://fonts.googleapis.com" rel="preconnect">
+    <link crossorigin href="https://fonts.gstatic.com" rel="preconnect">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&display=swap" rel="preload" as="style">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&display=swap" rel="stylesheet" media="print"
+          onload="this.onload=null;this.removeAttribute('media');">
+    <noscript>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&display=swap" rel="stylesheet">
+    </noscript>
+
+    <link href="src/sass/main.scss" rel="stylesheet"/>
+
+
 </head>
 <body>
 <div class="wrapper">
@@ -23,8 +36,8 @@
             </figure>
             <main>
                 <h1>
-                    <span>GOOD EVENING, IT’S CURRENTLY</span>
-                    <span>23:14</span><span>BST</span>
+                    <span class="f-size-fluid-4 fw-regular d-block">GOOD EVENING, IT’S CURRENTLY</span>
+                    <span class="f-size-fluid-8 fw-bold">23:14</span><span>BST</span>
                     <span>IN LONDON, UK</span>
                 </h1>
             </main>

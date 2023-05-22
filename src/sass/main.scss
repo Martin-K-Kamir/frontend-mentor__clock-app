@@ -1,19 +1,10 @@
 
 @import 'global/reset';
 @import 'global/base';
-@import 'global/animate';
 
 @import 'composition/flow';
 @import 'composition/grid';
 @import 'composition/stack';
 @import 'composition/wrapper';
-
-@import 'components/button';
-@import 'components/user';
-@import 'components/search';
-@import 'components/loader';
-@import 'components/navigation';
-@import 'components/message';
-@import 'components/table';
 
 @import 'global/utils';
