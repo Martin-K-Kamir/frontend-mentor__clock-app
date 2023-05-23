@@ -1,9 +1,13 @@
 
 .flow {
 	--_flow-size : var(--flow-size, var(--size, 1em));
+	--_flow-size-column : var(--flow-size-column, var(--_flow-size));
+	--_flow-size-row : var(--flow-size-row, var(--_flow-size));
 
 	display : grid;
-	gap      : var(--_flow-size);
+	column-gap : var(--_flow-size-column);
+	row-gap : var(--_flow-size-row);
+
 
 	&[data-inherit-size] {
 		--flow-size : inherit;

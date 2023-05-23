@@ -44,8 +44,8 @@
 
 	--f-size-fluid-1 : clamp(0.625rem, 0.349rem + 0.919vw, 0.938rem); // 10px - 15px
 	--f-size-fluid-2 : clamp(0.75rem, 0.529rem + 0.735vw, 1rem); // 12px - 16px
-	--f-size-fluid-3 : clamp(0.75rem, 0.419rem + 1.103vw, 1.125rem); // 12px - 18px
-	--f-size-fluid-4 : clamp(0.938rem, 0.662rem + 0.919vw, 1.25rem); // 15px - 20px
+	--f-size-fluid-3 : clamp(0.875rem, 0.765rem + 0.368vw, 1rem); // 14px - 16px
+	--f-size-fluid-4 : clamp(0.75rem, 0.419rem + 1.103vw, 1.125rem); // 12px - 18px
 	--f-size-fluid-5 : clamp(0.938rem, 0.441rem + 1.654vw, 1.5rem); // 15px - 24px
 	--f-size-fluid-6 : clamp(0.938rem, -0.441rem + 4.596vw, 2.5rem); // 15px - 40px
 	--f-size-fluid-7 : clamp(1.25rem, -0.735rem + 6.618vw, 3.5rem); // 20px - 56px
@@ -58,8 +58,8 @@
 	--size-5         : 1.25rem; // 20px
 	--size-6         : 1.5rem; // 24px
 	--size-7         : 2rem; // 32px
-	--size-9         : 2.5rem; // 40px
-	--size-10        : 3.4375rem; // 55px
+	--size-9         : 3.438rem; // 55px
+	--size-10        : 6rem; // 96px
 
 	--size-fluid-1   : clamp(0.313rem, 0.037rem + 0.919vw, 0.625rem); // 5px - 10px
 	--size-fluid-2   : clamp(0.625rem, 0.46rem + 0.551vw, 0.813rem); // 10px - 13px
@@ -67,8 +67,8 @@
 	--size-fluid-4   : clamp(1rem, 0.118rem + 2.941vw, 2rem); // 16px - 32px
 	--size-fluid-5   : clamp(1.5rem, 1.059rem + 1.471vw, 2rem); // 24px - 32px
 	--size-fluid-6   : clamp(2rem, 1.559rem + 1.471vw, 2.5rem); // 32px - 40px
-	--size-fluid-7   : clamp(2rem, 0.732rem + 4.228vw, 3.438rem); // 32px - 55x
-	--size-fluid-8   : clamp(2rem, -0.371rem + 7.904vw, 4.688rem); // 32px - 75px
+	--size-fluid-7   : clamp(2.813rem, 1.985rem + 2.757vw, 3.75rem); // 32px - 55x
+	--size-fluid-8   : clamp(3.438rem, 2.059rem + 4.596vw, 5rem); // 55px - 80px
 
 	--size-xxs       : 20.625em; // 330px
 	--size-xs        : 22.5em; // 360px
@@ -90,18 +90,20 @@
 
 body {
 	font-family      : var(--ff-body);
-	font-size        : var(--f-size-fluid-3);
+	font-size        : var(--f-size-fluid-4);
 	font-weight      : var(--fw-regular);
 	color            : var(--clr-white);
 	background-color : var(--clr-black);
+	overflow         : hidden;
+	block-size       : 100vh;
 }
 
 .app {
-	--_alpha            : 0.3;
+	--_alpha            : 0.5;
 	background-image    : linear-gradient(hsla(0, 0%, 0%, var(--_alpha)), hsla(0, 0%, 0%, var(--_alpha))), var(--_bg-image);
 	background-size     : cover;
 	background-position : center;
-	block-size          : 100vh;
+	block-size          : 100%;
 }
 
 [data-theme='light'] .app {
@@ -136,6 +138,10 @@ svg {
 	block-size  : auto;
 }
 
-.hero {
-	block-size: 100%;
+blockquote::before {
+	content : '“';
+}
+
+blockquote::after {
+	content : '”';
 }

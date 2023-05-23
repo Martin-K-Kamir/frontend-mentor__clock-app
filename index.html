@@ -39,13 +39,13 @@
                     </svg>
                 </button>
             </div>
-            <main id="time" class="[ time ] [ flow ] [ direction-row//above-md ]">
+            <main id="clock" class="[ flow ] [ direction-row//above-md ]">
                 <h1 class="text-uppercase">
                     <span class="[ flow ] [ size-2 f-size-fluid-4 f-spacing-3 fw-regular direction-row align-items-center justify-content-start ]">
                         <svg class="icon" focusable="false" width="1em" height="1em" aria-hidden="true">
                             <use href="/assets/icons/icons.svg#sun"/>
                         </svg>
-                        good evening <span class="hide//below-sm">, it’s currently</span>
+                        good evening <span class="hide//below-sm">it’s currently</span>
                     </span>
                     <span class="d-block f-height-1">
                         <span class="f-size-fluid-8 f-spacing-1 fw-bold">23:14</span>
@@ -63,23 +63,23 @@
             </main>
         </div>
     </div>
-    <div id="time-extended" class="[  ] [ bg-primary clr-secondary ]">
-        <div class="[ flow wrapper grid ] [ d-grid size-fluid-3 size-content-1 ]">
-            <div class="">
+    <div id="time" class="[ time ] [ bg-primary clr-secondary ]" data-state="hidden">
+        <div class="[ time__wrapper ] [ flow wrapper grid ]" data-grid="switch">
+            <div class="direction-row//below-md align-items-center//below-md">
                 <h2 class="f-size-fluid-1 f-spacing-3 fw-regular text-uppercase">CURRENT TIMEZONE</h2>
-                <p class="f-size-fluid-7 fw-bold">Europe/London</p>
+                <p class="f-size-fluid-7 fw-bold justify-self-end//below-md">Europe/London</p>
             </div>
-            <div>
+            <div class="direction-row//below-md align-items-center//below-md">
                 <h2 class="f-size-fluid-1 f-spacing-3 fw-regular text-uppercase">Day of the year</h2>
-                <p class="f-size-fluid-7 fw-bold">295</p>
+                <p class="f-size-fluid-7 fw-bold justify-self-end//below-md">295</p>
             </div>
-            <div>
+            <div class="direction-row//below-md align-items-center//below-md">
                 <h2 class="f-size-fluid-1 f-spacing-3 fw-regular text-uppercase">Day of the week</h2>
-                <p class="f-size-fluid-7 fw-bold">5</p>
+                <p class="f-size-fluid-7 fw-bold justify-self-end//below-md">5</p>
             </div>
-            <div>
+            <div class="direction-row//below-md align-items-center//below-md">
                 <h2 class="f-size-fluid-1 f-spacing-3 fw-regular text-uppercase">Week number</h2>
-                <p class="f-size-fluid-7 fw-bold">42</p>
+                <p class="f-size-fluid-7 fw-bold justify-self-end//below-md">42</p>
             </div>
         </div>
     </div>

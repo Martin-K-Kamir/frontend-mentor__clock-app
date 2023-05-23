@@ -30,13 +30,20 @@
 }
 
 [data-type='controls'].btn {
-	--f-size       : var(--f-size-fluid-2);
+	--f-size       : var(--f-size-fluid-3);
 	--clr          : var(--clr-gray, gray);
 
 	padding        : 0.6em 0.65em 0.6em 1.25em;
 	text-transform : uppercase;
 	letter-spacing : var(--f-spacing-3);
 	border-radius  : 100vmax;
+	transition     : color 200ms ease-in-out;
+
+	@media (--mouse) {
+		&:hover {
+			--clr : color-mix(in srgb, var(--clr-gray) 75%, rgba(0, 0, 0, 0.4));
+		}
+	}
 
 	svg {
 		background-color : var(--clr);
@@ -44,12 +51,24 @@
 		stroke           : var(--clr-white);
 		padding          : 0.25em;
 		font-size        : 1.725em;
+		transition       : background-color 200ms ease-in-out;
 	}
 }
 
 [data-type='icon'].btn {
-	--bg : transparent;
-	--clr : var(--clr-white);
+	--bg    : transparent;
+	--clr   : var(--clr-white);
 
 	padding : 0.5em;
+
+	svg {
+		opacity    : 0.5;
+		transition : opacity 200ms ease-in-out;
+
+		@media (--mouse) {
+			&:hover {
+				opacity : 1;
+			}
+		}
+	}
 }

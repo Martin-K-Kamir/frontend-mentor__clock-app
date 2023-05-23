@@ -3,3 +3,16 @@
 	display               : grid;
 	grid-template-columns : repeat(auto-fit, minmax(min(var(--size-content, 30ch), 100%), 1fr));
 }
+
+[data-grid="switch"].grid {
+	--_columns            : 1;
+	grid-template-columns : repeat(var(--_columns), 1fr);
+
+	@media (--above-md) {
+		--_columns : var(--_num);
+	}
+
+	&:has(:nth-child(4)) {
+		--_num : 2;
+	}
+}
