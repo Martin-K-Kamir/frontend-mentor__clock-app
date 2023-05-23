@@ -28,9 +28,9 @@
 	--ff-body        : var(--ff-primary);
 	--ff-heading     : var(--ff-primary);
 
-	--f-height-1  : 0.975;
-	--f-height-2  : 1.25;
-	--f-height-3  : 1.5;
+	--f-height-1     : 0.975;
+	--f-height-2     : 1.25;
+	--f-height-3     : 1.5;
 
 	--f-spacing-1    : -0.025em;
 	--f-spacing-2    : -0.015em;
@@ -78,9 +78,9 @@
 	--size-xl        : 90em; // 1440px
 	--size-xxl       : 120em; // 1920px
 
-	--size-content-1 : 22ch;
+	--size-content-1 : 35ch;
 	--size-content-2 : 45ch;
-	--size-content-3 : 60ch;
+	--size-content-3 : 55ch;
 }
 
 [data-theme='dark'] {
@@ -96,6 +96,21 @@ body {
 	background-color : var(--clr-black);
 }
 
+.app {
+	--_alpha            : 0.3;
+	background-image    : linear-gradient(hsla(0, 0%, 0%, var(--_alpha)), hsla(0, 0%, 0%, var(--_alpha))), var(--_bg-image);
+	background-size     : cover;
+	background-position : center;
+	block-size          : 100vh;
+}
+
+[data-theme='light'] .app {
+	--_bg-image : url('/assets/images/bg-image-daytime.jpg');
+}
+
+[data-theme='dark'] .app {
+	--_bg-image : url('/assets/images/bg-image-nighttime.jpg');
+}
 
 :where(a, button, input, select) {
 	--_outline-size  : var(--outline-size, max(1px, 0.15em));
@@ -119,4 +134,8 @@ svg {
 	fill        : currentColor;
 	flex-shrink : 0;
 	block-size  : auto;
+}
+
+.hero {
+	block-size: 100%;
 }

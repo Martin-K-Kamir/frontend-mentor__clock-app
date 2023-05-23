@@ -174,8 +174,10 @@
 	--size-content : var(--size-content-3);
 }
 
-//////////////////// Radius /////////////////////
-
+////////////// inline & block size ///////////////
+.max-inline-size {
+	max-inline-size : var(--size-content);
+}
 
 ////////////////// Typography ///////////////////
 .text-uppercase {

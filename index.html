@@ -19,45 +19,53 @@
 
 
 </head>
-<body>
-<div class="app">
-    <div class="wrapper">
-        <div>
-            <figure>
-                <blockquote>
-                    The science of operations, as derived from mathematics more especially, is a science of itself, and has its own abstract truth and
-                    value.
-                </blockquote>
-                <figcaption class="fw-bold">
-                    Ada Lovelace
-                </figcaption>
+<body data-theme="light">
+<div id="app" class="app">
+    <div class="[ hero ] [ wrapper ] [ direction-column//below-md ]">
+        <div class="direction-column align-content-between">
+            <div id="quote" class="[ max-inline-size size-content-3 d-flex align-items-start ]">
+                <figure class="[ flow ] [ size-2 ]">
+                    <blockquote>
+                        The science of operations, as derived from mathematics more especially, is a science of itself, and has its own abstract truth and
+                        value.
+                    </blockquote>
+                    <figcaption class="fw-bold">
+                        Ada Lovelace
+                    </figcaption>
+                </figure>
                 <button class="btn" data-type="icon" aria-label="new quote">
-
+                    <svg class="icon" focusable="false" width="1em" height="1em" aria-hidden="true">
+                        <use href="/assets/icons/icons.svg#refresh"/>
+                    </svg>
                 </button>
-            </figure>
-            <main>
+            </div>
+            <main id="time" class="[ time ] [ flow ] [ direction-row//above-md ]">
                 <h1 class="text-uppercase">
-                    <span class="f-size-fluid-4 f-spacing-3 fw-regular d-block">GOOD EVENING, IT’S CURRENTLY</span>
+                    <span class="[ flow ] [ size-2 f-size-fluid-4 f-spacing-3 fw-regular direction-row align-items-center justify-content-start ]">
+                        <svg class="icon" focusable="false" width="1em" height="1em" aria-hidden="true">
+                            <use href="/assets/icons/icons.svg#sun"/>
+                        </svg>
+                        good evening <span class="hide//below-sm">, it’s currently</span>
+                    </span>
                     <span class="d-block f-height-1">
                         <span class="f-size-fluid-8 f-spacing-1 fw-bold">23:14</span>
                         <span class="f-size-fluid-6 fw-light">BST</span>
                     </span>
                     <span class="f-size-fluid-5 f-spacing-3 fw-bold">IN LONDON, UK</span>
                 </h1>
+
+                <button class="[ btn ] [ justify-self-start//below-md align-self-start//below-md justify-self-end//above-md align-self-end//above-md ]" data-type="controls">
+                    more
+                    <svg class="icon" focusable="false" width="1em" height="1em" aria-hidden="true">
+                        <use href="/assets/icons/icons.svg#arrow"/>
+                    </svg>
+                </button>
             </main>
         </div>
-        <div>
-            <button class="btn" data-type="primary">
-                more
-                <svg class="icon" focusable="false" width="1em" height="1em" aria-hidden="true">
-                    <use href="/assets/icons/icons.svg#arrow"/>
-                </svg>
-            </button>
-        </div>
     </div>
-    <div class="[  ] [ bg-primary clr-secondary ]">
-        <div class="wrapper">
-            <div>
+    <div id="time-extended" class="[  ] [ bg-primary clr-secondary ]">
+        <div class="[ flow wrapper grid ] [ d-grid size-fluid-3 size-content-1 ]">
+            <div class="">
                 <h2 class="f-size-fluid-1 f-spacing-3 fw-regular text-uppercase">CURRENT TIMEZONE</h2>
                 <p class="f-size-fluid-7 fw-bold">Europe/London</p>
             </div>

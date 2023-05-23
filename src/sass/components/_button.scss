@@ -7,7 +7,7 @@
 
 	display          : inline-flex;
 	align-items      : center;
-	gap: 0.5em;
+	gap              : 0.5em;
 	cursor           : pointer;
 	border           : none;
 	user-select      : none;
@@ -29,11 +29,11 @@
 	}
 }
 
-[data-type='primary'].btn {
+[data-type='controls'].btn {
 	--f-size       : var(--f-size-fluid-2);
 	--clr          : var(--clr-gray, gray);
 
-	padding        : 0.5em 1.25em;
+	padding        : 0.6em 0.65em 0.6em 1.25em;
 	text-transform : uppercase;
 	letter-spacing : var(--f-spacing-3);
 	border-radius  : 100vmax;
@@ -43,6 +43,13 @@
 		border-radius    : 50%;
 		stroke           : var(--clr-white);
 		padding          : 0.25em;
-		font-size: 2em;
+		font-size        : 1.725em;
 	}
+}
+
+[data-type='icon'].btn {
+	--bg : transparent;
+	--clr : var(--clr-white);
+
+	padding : 0.5em;
 }

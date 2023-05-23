@@ -1,0 +1,10 @@
+
+.switcher {
+	display   : flex;
+	flex-wrap : wrap;
+
+	& > * {
+		flex-basis : calc((var(--size-content, 55ch) - 100%) * 999);
+		flex-grow  : 1;
+	}
+}
