@@ -100,18 +100,18 @@ body {
 
 .app {
 	--_alpha            : 0.5;
-	background-image    : linear-gradient(hsla(0, 0%, 0%, var(--_alpha)), hsla(0, 0%, 0%, var(--_alpha))), var(--_bg-image);
+	background-image    : linear-gradient(hsla(0, 0%, 0%, var(--_alpha)), hsla(0, 0%, 0%, var(--_alpha))), var(--bg-image);
 	background-size     : cover;
 	background-position : center;
 	block-size          : 100%;
 }
 
 [data-theme='light'] .app {
-	--_bg-image : url('/assets/images/bg-image-daytime.jpg');
+	--bg-image : url('/assets/images/bg-image-daytime.jpg');
 }
 
 [data-theme='dark'] .app {
-	--_bg-image : url('/assets/images/bg-image-nighttime.jpg');
+	--bg-image : url('/assets/images/bg-image-nighttime.jpg');
 }
 
 :where(a, button, input, select) {

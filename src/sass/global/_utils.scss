@@ -179,6 +179,231 @@
 	max-inline-size : var(--size-content);
 }
 
+.inline-size-full {
+	inline-size : 100%;
+}
+
+.block-size-full {
+	block-size : 100%;
+}
+
+//////////////////// Paddings ////////////////////
+.pad-1 {
+	padding : var(--size-1);
+}
+
+.pad-2 {
+	padding : var(--size-2);
+}
+
+.pad-3 {
+	padding : var(--size-3);
+}
+
+.pad-4 {
+	padding : var(--size-4);
+}
+
+.pad-5 {
+	padding : var(--size-5);
+}
+
+.pad-6 {
+	padding : var(--size-6);
+}
+
+.pad-7 {
+	padding : var(--size-7);
+}
+
+.pad-8 {
+	padding : var(--size-8);
+}
+
+.pad-9 {
+	padding : var(--size-9);
+}
+
+.pad-10 {
+	padding : var(--size-10);
+}
+
+.pad-block-1 {
+	padding-block : var(--size-1);
+}
+
+.pad-block-2 {
+	padding-block : var(--size-2);
+}
+
+.pad-block-3 {
+	padding-block : var(--size-3);
+}
+
+.pad-block-4 {
+	padding-block : var(--size-4);
+}
+
+.pad-block-5 {
+	padding-block : var(--size-5);
+}
+
+.pad-block-6 {
+	padding-block : var(--size-6);
+}
+
+.pad-block-7 {
+	padding-block : var(--size-7);
+}
+
+.pad-block-8 {
+	padding-block : var(--size-8);
+}
+
+.pad-block-9 {
+	padding-block : var(--size-9);
+}
+
+.pad-block-10 {
+	padding-block : var(--size-10);
+}
+
+.pad-inline-1 {
+	padding-inline : var(--size-1);
+}
+
+.pad-inline-2 {
+	padding-inline : var(--size-2);
+}
+
+.pad-inline-3 {
+	padding-inline : var(--size-3);
+}
+
+.pad-inline-4 {
+	padding-inline : var(--size-4);
+}
+
+.pad-inline-5 {
+	padding-inline : var(--size-5);
+}
+
+.pad-inline-6 {
+	padding-inline : var(--size-6);
+}
+
+.pad-inline-7 {
+	padding-inline : var(--size-7);
+}
+
+.pad-inline-8 {
+	padding-inline : var(--size-8);
+}
+
+.pad-inline-9 {
+	padding-inline : var(--size-9);
+}
+
+.pad-inline-10 {
+	padding-inline : var(--size-10);
+}
+
+.pad-fluid-1 {
+	padding : var(--size-fluid-1);
+}
+
+.pad-fluid-2 {
+	padding : var(--size-fluid-2);
+}
+
+.pad-fluid-3 {
+	padding : var(--size-fluid-3);
+}
+
+.pad-fluid-4 {
+	padding : var(--size-fluid-4);
+}
+
+.pad-fluid-5 {
+	padding : var(--size-fluid-5);
+}
+
+.pad-fluid-6 {
+	padding : var(--size-fluid-6);
+}
+
+.pad-fluid-7 {
+	padding : var(--size-fluid-7);
+}
+
+.pad-fluid-8 {
+	padding : var(--size-fluid-8);
+}
+
+.pad-block-fluid-1 {
+	padding-block : var(--size-fluid-1);
+}
+
+.pad-block-fluid-2 {
+	padding-block : var(--size-fluid-2);
+}
+
+.pad-block-fluid-3 {
+	padding-block : var(--size-fluid-3);
+}
+
+.pad-block-fluid-4 {
+	padding-block : var(--size-fluid-4);
+}
+
+.pad-block-fluid-5 {
+	padding-block : var(--size-fluid-5);
+}
+
+.pad-block-fluid-6 {
+	padding-block : var(--size-fluid-6);
+}
+
+.pad-block-fluid-7 {
+	padding-block : var(--size-fluid-7);
+}
+
+.pad-block-fluid-8 {
+	padding-block : var(--size-fluid-8);
+}
+
+.pad-inline-fluid-1 {
+	padding-inline : var(--size-fluid-1);
+}
+
+.pad-inline-fluid-2 {
+	padding-inline : var(--size-fluid-2);
+}
+
+.pad-inline-fluid-3 {
+	padding-inline : var(--size-fluid-3);
+}
+
+.pad-inline-fluid-4 {
+	padding-inline : var(--size-fluid-4);
+}
+
+.pad-inline-fluid-5 {
+	padding-inline : var(--size-fluid-5);
+}
+
+.pad-inline-fluid-6 {
+	padding-inline : var(--size-fluid-6);
+}
+
+.pad-inline-fluid-7 {
+	padding-inline : var(--size-fluid-7);
+}
+
+.pad-inline-fluid-8 {
+	padding-inline : var(--size-fluid-8);
+}
+
 ////////////////// Typography ///////////////////
 .text-uppercase {
 	text-transform : uppercase

@@ -16,17 +16,18 @@
     </noscript>
 
     <link href="src/sass/main.scss" rel="stylesheet"/>
-
+    <script defer src="src/js/controller.js" type="module"></script>
 
 </head>
 <body data-theme="light">
-<div id="app" class="app">
-    <div class="[ hero ] [ wrapper ] [ direction-column//below-md ]">
+<div id="app" class="app" style="--bg-image: url('https://images.unsplash.com/photo-1681860317700-1b033c2c2a9b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w0NTI0MDV8MHwxfHJhbmRvbXx8fHx8fHx8fDE2ODQ5Mzc3MjZ8&ixlib=rb-4.0.3&q=85')">
+    <div class="[ wrapper ] [ block-size-full pad-block-fluid-8 direction-column//below-md ]">
         <div class="direction-column align-content-between">
             <div id="quote" class="[ max-inline-size size-content-3 d-flex align-items-start ]">
                 <figure class="[ flow ] [ size-2 ]">
                     <blockquote>
-                        The science of operations, as derived from mathematics more especially, is a science of itself, and has its own abstract truth and
+                        The science of operations, as derived from mathematics more especially, is a science of itself, and has its own abstract truth
+                        and
                         value.
                     </blockquote>
                     <figcaption class="fw-bold">
@@ -54,7 +55,8 @@
                     <span class="f-size-fluid-5 f-spacing-3 fw-bold">IN LONDON, UK</span>
                 </h1>
 
-                <button class="[ btn ] [ justify-self-start//below-md align-self-start//below-md justify-self-end//above-md align-self-end//above-md ]" data-type="controls">
+                <button class="[ btn ] [ justify-self-start//below-md align-self-start//below-md justify-self-end//above-md align-self-end//above-md ]"
+                        data-type="controls">
                     more
                     <svg class="icon" focusable="false" width="1em" height="1em" aria-hidden="true">
                         <use href="/assets/icons/icons.svg#arrow"/>
@@ -63,7 +65,7 @@
             </main>
         </div>
     </div>
-    <div id="time" class="[ time ] [ bg-primary clr-secondary ]" data-state="hidden">
+    <div id="time" class="[ time ] [ pad-block-fluid-7 bg-primary clr-secondary ]" data-state="hidden">
         <div class="[ time__wrapper ] [ flow wrapper grid ]" data-grid="switch">
             <div class="direction-row//below-md align-items-center//below-md">
                 <h2 class="f-size-fluid-1 f-spacing-3 fw-regular text-uppercase">CURRENT TIMEZONE</h2>
