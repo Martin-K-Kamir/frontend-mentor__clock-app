@@ -1,21 +1,40 @@
 import * as model from './model.js';
 
-// model.getData();
+async function controlInitializationApp() {
+    try {
+        const ipAddress = await model.getIPAddress();
 
-async function controlLoadingPage() {
-    // loading
+        const viewportOrientation = model.getViewportOrientation();
 
-    // getting data
-    const ipAddress = await model.getIPAddress();
+        model.state.set({
+            location: { ipAddress },
+            image: { viewportOrientation },
+            time: model.createTimeObj()
+        });
 
-    const location = await model.getLocation(ipAddress);
+        const [ imageData, quoteData, locationData ] = await model.getAppData();
 
-    model.state.set({ location });
+        model.state.set({
+            quote: model.createQuoteObj(quoteData),
+            location: { ...model.state.location, ...model.createLocationObj(locationData) },
+        });
 
-    console.log(model.state);
-    // render
-
-    // remove loading
+        console.log(model.state);
+    } catch (error) {
+        console.error(`!!! ${error} !!!`);
+    }
 }
 
-controlLoadingPage();
+async function controlCurrentPosition() {
+    try {
+        const currentPosition = await model.getCurrentPosition();
+        model.state.set({ location: { ...model.state.location, currentPosition } });
+
+        console.log(model.state);
+    } catch (error) {
+        console.error(`!!! ${error} !!!`);
+    }
+}
+
+controlInitializationApp();
+controlCurrentPosition();
