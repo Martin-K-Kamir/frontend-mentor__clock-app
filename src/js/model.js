@@ -1,6 +1,13 @@
 import {getJSON} from './utils.js';
+import {
+    API_URL_UNSPLASH,
+    API_KEY_UNSPLASH,
+    API_URL_QUOTABLE,
+    API_URL_IPAPI,
+    API_URL_GEOAPIFY,
+    API_KEY_GEOAPIFY
+} from './keys.js';
 
-// import { API_KEY_1 } from './keys.js';
 
 class State {
     constructor(initValue) {
@@ -23,13 +30,11 @@ export async function getIPAddress() {
     return ip;
 }
 
-
-
-export async function getAppData() {
+export async function getInitializationData() {
     const data = await Promise.all([
-        getJSON(`https://api.unsplash.com/photos/random?client_id=KEY&orientation=${state.image.viewportOrientation}&query=${state.time.timeOfDay}`),
-        getJSON(`https://api.quotable.io/quotes/random`),
-        getJSON(`https://api.ipbase.com/v2/info?apikey=KEY&ip=${state.location.ipAddress}`)
+        getJSON(`${API_URL_UNSPLASH}?client_id=${API_KEY_UNSPLASH}&orientation=${state.image.viewportOrientation}&query=${state.time.timeOfDay}`),
+        getJSON(`${API_URL_QUOTABLE}`),
+        getJSON(`${API_URL_IPAPI}/${state.location.ipAddress}`)
     ]);
     console.log(data)
     return data.flat();
@@ -43,10 +48,9 @@ export function getCurrentPosition() {
             navigator.geolocation.getCurrentPosition(async (position) => {
                 const { latitude, longitude } = position.coords;
                 try {
-                    const response = await fetch(`https://api.opencagedata.com/geocode/v1/json?key=KEY&q=${latitude},${longitude}`);
+                    const response = await fetch(`${API_URL_GEOAPIFY}?lat=${latitude}&lon=${longitude}&format=json&apiKey=${API_KEY_GEOAPIFY}`);
                     const data = await response.json();
-                    const city = data.results[0].components.city || data.results[0].components.town || data.results[0].components.village;
-                    resolve(city);
+                    resolve(data.results[0].city);
                 } catch (error) {
                     reject('Error retrieving city information');
                 }
@@ -55,6 +59,10 @@ export function getCurrentPosition() {
             });
         }
     });
+}
+
+export function getQuoteData() {
+    return getJSON(`${API_URL_QUOTABLE}`);
 }
 
 export function getViewportOrientation() {
@@ -134,9 +142,9 @@ export function createTimeObj() {
 
 export function createLocationObj(data) {
     return {
-        timezone: data.data.timezone.id,
-        country: data.data.location.country.alpha2,
-        city: data.data.location.city.name,
+        timezone: data.timezone,
+        countryCode: data.countryCode,
+        city: data.city,
     };
 }
 
@@ -144,5 +152,29 @@ export function createQuoteObj(data) {
     return {
         author: data.author,
         quote: data.content,
+    };
+}
+
+export function createImageObj(data) {
+    return {
+        alt: data.alt_description,
+        author: {
+            name: `${data.user.first_name} ${data.user.last_name}`,
+            url: data.user.links.html,
+        },
+        srcs: [
+            {
+                src: data.urls.small,
+                width: 400,
+            },
+            {
+                src: data.urls.regular,
+                width: 1080,
+            },
+            {
+                src: data.urls.full,
+                width: 3648,
+            }
+        ]
     };
 }

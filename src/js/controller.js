@@ -1,4 +1,5 @@
 import * as model from './model.js';
+import quoteView from './views/quoteView.js';
 
 async function controlInitializationApp() {
     try {
@@ -12,29 +13,50 @@ async function controlInitializationApp() {
             time: model.createTimeObj()
         });
 
-        const [ imageData, quoteData, locationData ] = await model.getAppData();
+        const [ imageData, quoteData, locationData ] = await model.getInitializationData();
 
         model.state.set({
             quote: model.createQuoteObj(quoteData),
+            image: model.createImageObj(imageData),
             location: { ...model.state.location, ...model.createLocationObj(locationData) },
         });
 
-        console.log(model.state);
+        quoteView.render(model.state.quote);
+
+        console.log(model.state)
     } catch (error) {
         console.error(`!!! ${error} !!!`);
     }
 }
 
-async function controlCurrentPosition() {
+async function controlUserPosition() {
     try {
         const currentPosition = await model.getCurrentPosition();
         model.state.set({ location: { ...model.state.location, currentPosition } });
-
-        console.log(model.state);
     } catch (error) {
         console.error(`!!! ${error} !!!`);
     }
 }
 
+
 controlInitializationApp();
-controlCurrentPosition();
+controlUserPosition();
+
+async function controlNewQuote() {
+    try {
+        const quoteData = await model.getQuoteData();
+        model.state.set({ quote: {...model.state.quote, ...model.createQuoteObj(quoteData)} });
+        console.log(model.state)
+        quoteView.update(model.state.quote);
+    } catch (error) {
+        console.error(`!!! ${error} !!!`);
+    }
+}
+
+
+
+function init() {
+
+    quoteView.handleClick(controlNewQuote);
+}
+init();

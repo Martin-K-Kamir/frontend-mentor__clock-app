@@ -10,6 +10,7 @@ export default class View {
         if (getMarkup) return markup;
 
         this.clear();
+        (this._renderElement ?? this._parentElement).ariaHidden = false;
         (this._renderElement ?? this._parentElement).insertAdjacentHTML('afterbegin', markup);
     }
 
