@@ -1,0 +1,21 @@
+.stacked {
+	position            : relative;
+	display             : grid;
+	grid-template-areas : 'stacked';
+
+	img {
+		object-fit  : cover;
+		inline-size : 100%;
+		block-size  : 100%;
+	}
+
+	& > * {
+		grid-area : stacked;
+		z-index   : 1;
+	}
+
+	&[data-extrinsic-sizing='true'] img {
+		position : absolute;
+		inset    : 0;
+	}
+}

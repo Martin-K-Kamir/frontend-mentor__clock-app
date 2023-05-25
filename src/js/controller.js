@@ -1,5 +1,8 @@
 import * as model from './model.js';
 import quoteView from './views/quoteView.js';
+import backgroundView from './views/backgroundView.js';
+import clockView from './views/clockView.js';
+import data from './data.json'
 
 async function controlInitializationApp() {
     try {
@@ -13,15 +16,17 @@ async function controlInitializationApp() {
             time: model.createTimeObj()
         });
 
-        const [ imageData, quoteData, locationData ] = await model.getInitializationData();
+        const [ quoteData, locationData ] = await model.getInitializationData();
 
         model.state.set({
             quote: model.createQuoteObj(quoteData),
-            image: model.createImageObj(imageData),
+            image: model.createImageObj(data),
             location: { ...model.state.location, ...model.createLocationObj(locationData) },
         });
 
         quoteView.render(model.state.quote);
+        backgroundView.render(model.state.image);
+        clockView.render({ ...model.state.location, ...model.state.time });
 
         console.log(model.state)
     } catch (error) {
@@ -45,8 +50,7 @@ controlUserPosition();
 async function controlNewQuote() {
     try {
         const quoteData = await model.getQuoteData();
-        model.state.set({ quote: {...model.state.quote, ...model.createQuoteObj(quoteData)} });
-        console.log(model.state)
+        model.state.set({ quote: model.createQuoteObj(quoteData) });
         quoteView.update(model.state.quote);
     } catch (error) {
         console.error(`!!! ${error} !!!`);

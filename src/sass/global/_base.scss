@@ -99,19 +99,7 @@ body {
 }
 
 .app {
-	--_alpha            : 0.5;
-	background-image    : linear-gradient(hsla(0, 0%, 0%, var(--_alpha)), hsla(0, 0%, 0%, var(--_alpha))), var(--bg-image);
-	background-size     : cover;
-	background-position : center;
 	block-size          : 100%;
-}
-
-[data-theme='light'] .app {
-	--bg-image : url('/assets/images/bg-image-daytime.jpg');
-}
-
-[data-theme='dark'] .app {
-	--bg-image : url('/assets/images/bg-image-nighttime.jpg');
 }
 
 :where(a, button, input, select) {
@@ -130,6 +118,17 @@ body {
 
 :where([class*=align],[class*=direction],[class*=justify]) {
 	display : grid
+}
+
+picture img {
+	aspect-ratio : inherit;
+	block-size   : inherit;
+	inline-size  : inherit;
+	object-fit   : inherit;
+}
+
+picture[data-filter='darker'] {
+	filter : brightness(0.6);
 }
 
 svg {

@@ -32,11 +32,10 @@ export async function getIPAddress() {
 
 export async function getInitializationData() {
     const data = await Promise.all([
-        getJSON(`${API_URL_UNSPLASH}?client_id=${API_KEY_UNSPLASH}&orientation=${state.image.viewportOrientation}&query=${state.time.timeOfDay}`),
+        // getJSON(`${API_URL_UNSPLASH}?client_id=${API_KEY_UNSPLASH}&orientation=${state.image.viewportOrientation}&query=${state.time.timeOfDay}`),
         getJSON(`${API_URL_QUOTABLE}`),
         getJSON(`${API_URL_IPAPI}/${state.location.ipAddress}`)
     ]);
-    console.log(data)
     return data.flat();
 }
 
@@ -61,8 +60,9 @@ export function getCurrentPosition() {
     });
 }
 
-export function getQuoteData() {
-    return getJSON(`${API_URL_QUOTABLE}`);
+export async function getQuoteData() {
+    const data = await getJSON(`${API_URL_QUOTABLE}`);
+    return data[0];
 }
 
 export function getViewportOrientation() {
@@ -157,23 +157,16 @@ export function createQuoteObj(data) {
 
 export function createImageObj(data) {
     return {
-        alt: data.alt_description,
         author: {
             name: `${data.user.first_name} ${data.user.last_name}`,
             url: data.user.links.html,
         },
         srcs: [
             {
-                src: data.urls.small,
-                width: 400,
-            },
-            {
                 src: data.urls.regular,
-                width: 1080,
             },
             {
                 src: data.urls.full,
-                width: 3648,
             }
         ]
     };

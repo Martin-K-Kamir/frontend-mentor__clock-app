@@ -14,6 +14,8 @@ class QuoteView extends View {
     }
 
     _generateMarkup() {
+        (this._renderElement ?? this._parentElement).ariaHidden = false;
+
         return `
             <figure class="[ flow ] [ size-2 ]">
                 <blockquote>

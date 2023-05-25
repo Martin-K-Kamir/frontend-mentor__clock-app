@@ -19,37 +19,20 @@
     <script defer src="src/js/controller.js" type="module"></script>
 
 </head>
-<body data-theme="light">
-<div id="app" class="app" style="--bg-image: url('https://images.unsplash.com/photo-1681860317700-1b033c2c2a9b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w0NTI0MDV8MHwxfHJhbmRvbXx8fHx8fHx8fDE2ODQ5Mzc3MjZ8&ixlib=rb-4.0.3&q=85')">
+<body>
+<div id="app" class="[ app ] [ stacked ]" data-extrinsic-sizing='true'>
+    <picture id="background" data-filter="darker">
+        <source srcset="/assets/images/bg-image@640w.jpg 640w, /assets/images/bg-image@1920w.jpg 1920w, /assets/images/bg-image@2400w.jpg 2400w" type="image/jpg">
+        <img src="/assets/images/bg-image@640w.jpg" fetchpriority="high" aria-hidden="true">
+    </picture>
     <div class="[ wrapper ] [ block-size-full pad-block-fluid-8 direction-column//below-md ]">
         <div class="direction-column align-content-between">
             <div id="quote" class="[ max-inline-size size-content-3 d-flex align-items-start ]" aria-hidden="true"></div>
-            <main id="clock" class="[ flow ] [ direction-row//above-md ]">
-                <h1 class="text-uppercase">
-                    <span class="[ flow ] [ size-2 f-size-fluid-4 f-spacing-3 fw-regular direction-row align-items-center justify-content-start ]">
-                        <svg class="icon" focusable="false" width="1em" height="1em" aria-hidden="true">
-                            <use href="/assets/icons/icons.svg#sun"/>
-                        </svg>
-                        good evening <span class="hide//below-sm">it’s currently</span>
-                    </span>
-                    <span class="d-block f-height-1">
-                        <span class="f-size-fluid-8 f-spacing-1 fw-bold">23:14</span>
-                        <span class="f-size-fluid-6 fw-light">BST</span>
-                    </span>
-                    <span class="f-size-fluid-5 f-spacing-3 fw-bold">IN LONDON, UK</span>
-                </h1>
 
-                <button class="[ btn ] [ justify-self-start//below-md align-self-start//below-md justify-self-end//above-md align-self-end//above-md ]"
-                        data-type="controls">
-                    more
-                    <svg class="icon" focusable="false" width="1em" height="1em" aria-hidden="true">
-                        <use href="/assets/icons/icons.svg#arrow"/>
-                    </svg>
-                </button>
-            </main>
+            <main id="clock" class="[ flow ] [ direction-row//above-md ]" aria-hidden="true"></main>
         </div>
     </div>
-    <div id="time" class="[ time ] [ pad-block-fluid-7 bg-primary clr-secondary ]" data-state="hidden">
+    <div id="panel" class="[ panel ] [ pad-block-fluid-7 bg-primary clr-secondary ]" data-state="hidden">
         <div class="[ time__wrapper ] [ flow wrapper grid ]" data-grid="switch">
             <div class="direction-row//below-md align-items-center//below-md">
                 <h2 class="f-size-fluid-1 f-spacing-3 fw-regular text-uppercase">CURRENT TIMEZONE</h2>
