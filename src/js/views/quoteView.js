@@ -3,7 +3,6 @@ import View from './View.js';
 class QuoteView extends View {
     _parentElement = document.getElementById('quote');
     _errorMessage = '';
-    _message = '';
 
     handleClick(handler) {
         this._parentElement.addEventListener('click', function (e) {
@@ -17,9 +16,9 @@ class QuoteView extends View {
         (this._renderElement ?? this._parentElement).ariaHidden = false;
 
         return `
-            <figure class="[ flow ] [ size-2 ]">
+            <figure class="flow">
                 <blockquote>
-                    ${this._data.quote}
+                    <p>${this._data.quote.trim()}</p>
                 </blockquote>
                 <figcaption class="fw-bold">
                     ${this._data.author}

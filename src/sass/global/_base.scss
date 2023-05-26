@@ -99,7 +99,7 @@ body {
 }
 
 .app {
-	block-size          : 100%;
+	block-size : 100%;
 }
 
 :where(a, button, input, select) {
@@ -137,10 +137,14 @@ svg {
 	block-size  : auto;
 }
 
-blockquote::before {
-	content : '“';
+blockquote p {
+	quotes : '"' '"' "'" "'";
 }
 
-blockquote::after {
-	content : '”';
+blockquote p::before {
+	content: open-quote;
+}
+
+blockquote p::after {
+	content: close-quote;
 }

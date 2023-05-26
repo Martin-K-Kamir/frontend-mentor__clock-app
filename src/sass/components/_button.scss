@@ -59,16 +59,16 @@
 	--bg    : transparent;
 	--clr   : var(--clr-white);
 
-	padding : 0.5em;
+	padding : 0.4em;
+
+	@media (--mouse) {
+		&:hover svg {
+			opacity : 1;
+		}
+	}
 
 	svg {
 		opacity    : 0.5;
 		transition : opacity 200ms ease-in-out;
-
-		@media (--mouse) {
-			&:hover {
-				opacity : 1;
-			}
-		}
 	}
 }

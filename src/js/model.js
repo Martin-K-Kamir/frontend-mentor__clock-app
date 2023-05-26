@@ -108,6 +108,16 @@ function getTimeOfDay(now) {
     }
 }
 
+function getTheme(now) {
+    const currentHour = now.getHours();
+
+    if (currentHour >= 5 && currentHour < 18) {
+        return 'light';
+    } else {
+        return 'dark';
+    }
+}
+
 function getLocalTime(now) {
     const formatter = new Intl.DateTimeFormat(navigator.language, {
         hour: 'numeric',
@@ -117,7 +127,7 @@ function getLocalTime(now) {
     return formatter.format(now);
 }
 
-function getTimeZoneName(now) {
+function getTimezoneName(now) {
     const formatter = new Intl.DateTimeFormat(navigator.language, {
         timeZoneName: 'short'
     });
@@ -136,7 +146,8 @@ export function createTimeObj() {
         dayOfYear: getDayOfYear(now),
         timeOfDay: getTimeOfDay(now),
         localTime: getLocalTime(now),
-        timeZoneName: getTimeZoneName(now),
+        timezoneName: getTimezoneName(now),
+        theme: getTheme(now),
     };
 }
 
@@ -163,11 +174,26 @@ export function createImageObj(data) {
         },
         srcs: [
             {
-                src: data.urls.regular,
+                src: `${data.urls.raw}&fit=crop&w=1920&h=1080&q=80`,
+                width: 1920,
             },
             {
-                src: data.urls.full,
-            }
+                src: data.urls.regular,
+                width: 1080,
+            },
+            {
+                src: data.urls.small,
+                width: 400,
+            },
         ]
     };
 }
+
+export function calcSecondsToNextMinute() {
+    const now = new Date();
+    const seconds = now.getSeconds();
+    const secondsToNextMinute = 60 - seconds;
+    return secondsToNextMinute;
+}
+
+console.log(calcSecondsToNextMinute() + ' seconds to next minute');
