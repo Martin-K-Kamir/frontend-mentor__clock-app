@@ -1,6 +1,8 @@
 import {getJSON} from './utils.js';
 // import {API_KEY_GEOAPIFY, API_KEY_UNSPLASH} from './keys.js';
 import {API_URL_GEOAPIFY, API_URL_IPAPI, API_URL_QUOTABLE, API_URL_UNSPLASH} from './config.js';
+import { API_KEY_UNSPLASH, API_KEY_GEOAPIFY } from '../../env.js';
+
 
 class State {
     constructor(initValue) {
@@ -25,9 +27,9 @@ export async function getIPAddress() {
 
 export async function getInitializationData() {
     const promises = [
-        getJSON(`${API_URL_UNSPLASH}?client_id=${import.meta.env.VITE_API_KEY_UNSPLASH}&orientation=${state.image.viewportOrientation}&query=${state.time.timeOfDay}`),
+        getJSON(`${API_URL_UNSPLASH}?client_id=${API_KEY_UNSPLASH}&orientation=${state.image.viewportOrientation}&query=${state.time.timeOfDay}`),
         getJSON(`${API_URL_QUOTABLE}`),
-        getJSON(`${API_URL_IPAPI}/${state.location.ipAddress}`,),
+        getJSON(`${API_URL_IPAPI}/${state.location.ipAddress}`),
     ];
 
     const settledPromises = await Promise.allSettled(promises);
@@ -47,7 +49,7 @@ export function getCurrentPosition() {
             navigator.geolocation.getCurrentPosition(async (position) => {
                 const {latitude, longitude} = position.coords;
                 try {
-                    const response = await fetch(`${API_URL_GEOAPIFY}?lat=${latitude}&lon=${longitude}&format=json&apiKey=${import.meta.env.VITE_API_KEY_GEOAPIFY}`);
+                    const response = await fetch(`${API_URL_GEOAPIFY}?lat=${latitude}&lon=${longitude}&format=json&apiKey=${API_KEY_GEOAPIFY}`);
                     const data = await response.json();
                     resolve({currentPosition: data.results[0].city});
                 } catch (error) {
