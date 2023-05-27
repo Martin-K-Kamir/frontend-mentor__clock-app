@@ -8,11 +8,19 @@ class clockView extends View {
         this._parentElement.addEventListener('click', function (e) {
             const btn = e.target.closest('.btn');
             if (!btn) return;
+            const btnIcon = btn.querySelector('[data-use="icon"] > use');
+            const btnText = btn.querySelector('[data-use="text"]');
 
             if(this._toggled) {
                 handler2();
+                this._toggled = false;
+                btnText.textContent = 'more';
+                btnIcon.setAttribute('href', '/assets/icons/icons.svg#arrow-down');
             } else {
                 handler1();
+                this._toggled = true;
+                btnText.textContent = 'less';
+                btnIcon.setAttribute('href', '/assets/icons/icons.svg#arrow-up');
             }
         });
     }
@@ -30,14 +38,14 @@ class clockView extends View {
                     <span class="f-size-fluid-8 f-spacing-1 fw-bold">${this._data.localTime}</span>
                     <span class="f-size-fluid-6 fw-light">${this._data.timezoneName}</span>
                 </span>
-                <span class="f-size-fluid-5 f-spacing-3 fw-bold text-uppercase">${this._data.currentPosition ?? this._data.city}, ${this._data.countryCode}</span>
+                ${this._data.city && `<span class="f-size-fluid-5 f-spacing-3 fw-bold text-uppercase">${this._data.currentPosition ?? this._data.city}, ${this._data.countryCode}</span>`}
             </h1>
 
             <button class="[ btn ] [ justify-self-start//below-md align-self-start//below-md justify-self-end//above-md align-self-end//above-md ]"
-                    data-type="controls">
-                ${this._toggled ? 'less' : 'more'}
-                <svg class="icon" focusable="false" width="1em" height="1em" aria-hidden="true">
-                    <use href="/assets/icons/icons.svg#arrow"/>
+                    data-type="controls" aria-controls="panel">
+                <span data-use="text">${this._toggled ? 'less' : 'more'}</span>
+                <svg class="icon" focusable="false" width="1em" height="1em" data-use="icon" aria-hidden="true">
+                    <use href="/assets/icons/icons.svg#${this._toggled ? 'arrow-up' : 'arrow-down'}"/>
                 </svg>
             </button>
         `

@@ -1,0 +1,27 @@
+#loader {
+	z-index : 99999;
+}
+
+.loader {
+	--_loader-size : var(--loader-size, 2.5em);
+
+	position       : relative;
+	display        : inline-block;
+	z-index        : 99999;
+	inline-size    : var(--_loader-size);
+	aspect-ratio   : 1;
+	border-radius  : 50%;
+	border         : 0.625rem solid;
+	border-color   : rgba(255, 255, 255, 0.15) rgba(255, 255, 255, 0.25) rgba(255, 255, 255, 0.35) rgba(255, 255, 255, 0.5);
+	animation      : rotation 1000ms linear infinite;
+
+	@keyframes rotation {
+		0% {
+			transform : rotate(0deg);
+		}
+		100% {
+			transform : rotate(360deg);
+		}
+	}
+}
+

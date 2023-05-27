@@ -1,13 +1,5 @@
 import {getJSON} from './utils.js';
-import {
-    API_URL_UNSPLASH,
-    API_KEY_UNSPLASH,
-    API_URL_QUOTABLE,
-    API_URL_IPAPI,
-    API_URL_GEOAPIFY,
-    API_KEY_GEOAPIFY
-} from './keys.js';
-
+import {API_KEY_GEOAPIFY, API_KEY_UNSPLASH, API_URL_GEOAPIFY, API_URL_IPAPI, API_URL_QUOTABLE, API_URL_UNSPLASH} from './keys.js';
 
 class State {
     constructor(initValue) {
@@ -26,17 +18,24 @@ export const state = new State({
 });
 
 export async function getIPAddress() {
-    const { ip } = await getJSON(`https://api.ipify.org?format=json`);
+    const {ip} = await getJSON(`https://api.ipify.org?format=json`);
     return ip;
 }
 
 export async function getInitializationData() {
-    const data = await Promise.all([
-        // getJSON(`${API_URL_UNSPLASH}?client_id=${API_KEY_UNSPLASH}&orientation=${state.image.viewportOrientation}&query=${state.time.timeOfDay}`),
+    const promises = [
+        getJSON(`${API_URL_UNSPLASH}?client_id=${API_KEY_UNSPLASH}&orientation=${state.image.viewportOrientation}&query=${state.time.timeOfDay}`),
         getJSON(`${API_URL_QUOTABLE}`),
-        getJSON(`${API_URL_IPAPI}/${state.location.ipAddress}`)
-    ]);
-    return data.flat();
+        getJSON(`${API_URL_IPAPI}/${state.location.ipAddress}`,),
+    ];
+
+    const settledPromises = await Promise.allSettled(promises);
+    return settledPromises.map(promise => {
+        if (Array.isArray(promise.value)) {
+            promise.value = promise.value[0];
+        }
+        return promise;
+    });
 }
 
 export function getCurrentPosition() {
@@ -45,11 +44,11 @@ export function getCurrentPosition() {
             reject('Geolocation is not supported by your browser');
         } else {
             navigator.geolocation.getCurrentPosition(async (position) => {
-                const { latitude, longitude } = position.coords;
+                const {latitude, longitude} = position.coords;
                 try {
                     const response = await fetch(`${API_URL_GEOAPIFY}?lat=${latitude}&lon=${longitude}&format=json&apiKey=${API_KEY_GEOAPIFY}`);
                     const data = await response.json();
-                    resolve(data.results[0].city);
+                    resolve({currentPosition: data.results[0].city});
                 } catch (error) {
                     reject('Error retrieving city information');
                 }
@@ -152,37 +151,44 @@ export function createTimeObj() {
 }
 
 export function createLocationObj(data) {
+    const _data = data.value ?? data;
+
     return {
-        timezone: data.timezone,
-        countryCode: data.countryCode,
-        city: data.city,
+        status : data.status,
+        timezone: _data.timezone,
+        countryCode: _data.countryCode,
+        city: _data.city,
     };
 }
 
 export function createQuoteObj(data) {
+    const _data = data.value ?? data;
+
     return {
-        author: data.author,
-        quote: data.content,
+        status: data.status,
+        author: _data.author,
+        quote: _data.content,
     };
 }
 
 export function createImageObj(data) {
     return {
+        status: data.status,
         author: {
-            name: `${data.user.first_name} ${data.user.last_name}`,
-            url: data.user.links.html,
+            name: `${data.value.user.first_name} ${data.value.user.last_name}`,
+            url: data.value.user.links.html,
         },
         srcs: [
             {
-                src: `${data.urls.raw}&fit=crop&w=1920&h=1080&q=80`,
+                src: `${data.value.urls.raw}&fit=crop&w=1920&h=1080&q=80`,
                 width: 1920,
             },
             {
-                src: data.urls.regular,
+                src: data.value.urls.regular,
                 width: 1080,
             },
             {
-                src: data.urls.small,
+                src: data.value.urls.small,
                 width: 400,
             },
         ]
@@ -195,5 +201,3 @@ export function calcSecondsToNextMinute() {
     const secondsToNextMinute = 60 - seconds;
     return secondsToNextMinute;
 }
-
-console.log(calcSecondsToNextMinute() + ' seconds to next minute');

@@ -12,7 +12,7 @@
 		--_columns : var(--_num);
 	}
 
-	&:has(:nth-child(4)) {
+	&:has(:where(:nth-child(3), :nth-child(4))) {
 		--_num : 2;
 	}
 }
