@@ -25,7 +25,7 @@ export async function getIPAddress() {
 
 export async function getInitializationData() {
     const promises = [
-        getJSON(`${API_URL_UNSPLASH}?client_id=${API_KEY_UNSPLASH}&orientation=${state.image.viewportOrientation}&query=${state.time.timeOfDay}`),
+        getJSON(`${API_URL_UNSPLASH}?client_id=${process.env.API_KEY_UNSPLASH}&orientation=${state.image.viewportOrientation}&query=${state.time.timeOfDay}`),
         getJSON(`${API_URL_QUOTABLE}`),
         getJSON(`${API_URL_IPAPI}/${state.location.ipAddress}`,),
     ];
@@ -47,7 +47,7 @@ export function getCurrentPosition() {
             navigator.geolocation.getCurrentPosition(async (position) => {
                 const {latitude, longitude} = position.coords;
                 try {
-                    const response = await fetch(`${API_URL_GEOAPIFY}?lat=${latitude}&lon=${longitude}&format=json&apiKey=${API_KEY_GEOAPIFY}`);
+                    const response = await fetch(`${API_URL_GEOAPIFY}?lat=${latitude}&lon=${longitude}&format=json&apiKey=${process.env.API_KEY_GEOAPIFY}`);
                     const data = await response.json();
                     resolve({currentPosition: data.results[0].city});
                 } catch (error) {
