@@ -43,6 +43,8 @@ async function controlInitializationApp() {
 
         document.body.dataset.theme = model.state.time.theme;
 
+        console.log(model.state)
+
     } catch (error) {
         console.error(error);
         appView.renderLoaderError()
