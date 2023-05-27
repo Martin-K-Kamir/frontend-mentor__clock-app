@@ -1,5 +1,6 @@
 import {getJSON} from './utils.js';
-import {API_KEY_GEOAPIFY, API_KEY_UNSPLASH, API_URL_GEOAPIFY, API_URL_IPAPI, API_URL_QUOTABLE, API_URL_UNSPLASH} from './keys.js';
+// import {API_KEY_GEOAPIFY, API_KEY_UNSPLASH} from './keys.js';
+import {API_URL_GEOAPIFY, API_URL_IPAPI, API_URL_QUOTABLE, API_URL_UNSPLASH} from './config.js';
 
 class State {
     constructor(initValue) {
