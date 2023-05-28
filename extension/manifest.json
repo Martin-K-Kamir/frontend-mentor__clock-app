@@ -1,0 +1,18 @@
+{
+  "manifest_version": 3,
+  "name": "Clock app",
+  "version": "1.0",
+  "description": "Clock app for Chrome",
+  "icons": {
+    "16": "assets/favicons/icon-16x16.png",
+    "48": "assets/favicons/icon-32x32.png",
+    "128": "assets/favicons/icon-128x128.png"
+  },
+  "permissions": [
+    "tabs",
+    "geolocation"
+  ],
+  "chrome_url_overrides": {
+    "newtab": "index.html"
+  }
+}

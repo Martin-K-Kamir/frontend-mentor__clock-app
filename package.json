@@ -11,6 +11,7 @@
   "devDependencies": {
     "postcss-preset-env": "^8.4.1",
     "sass": "^1.62.1",
-    "vite": "^4.3.2"
+    "vite": "^4.3.2",
+    "vite-plugin-pwa": "^0.15.1"
   }
 }
