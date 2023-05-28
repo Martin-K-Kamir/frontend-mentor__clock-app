@@ -1,5 +1,4 @@
 import {getJSON} from './utils.js';
-// import {API_KEY_GEOAPIFY, API_KEY_UNSPLASH} from './keys.js';
 import {API_URL_GEOAPIFY, API_URL_IPAPI, API_URL_IPGEOLOCATION, API_URL_QUOTABLE, API_URL_UNSPLASH} from './config.js';
 import {API_KEY_UNSPLASH, API_KEY_GEOAPIFY, API_KEY_IPGEOLOCATION} from '../../env.js';
 
@@ -32,7 +31,6 @@ export async function getInitializationData() {
         getJSON(`${API_URL_IPGEOLOCATION}/ipgeo?apiKey=${API_KEY_IPGEOLOCATION}&ip=${state.location.ipAddress}`),
     ];
     const settledPromises = await Promise.allSettled(promises);
-    console.log(settledPromises)
     return settledPromises.map(promise => {
         if (Array.isArray(promise.value)) {
             promise.value = promise.value[0];
@@ -63,7 +61,7 @@ export function getCurrentPosition() {
 }
 
 export async function getQuoteData() {
-    const data = await getJSON(`${API_URL_QUOTABLE}`);
+    const data = await getJSON(`${API_URL_QUOTABLE}/quotes/random`);
     return data[0];
 }
 
