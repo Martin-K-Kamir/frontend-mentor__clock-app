@@ -38,7 +38,7 @@ class clockView extends View {
                     <span class="f-size-fluid-8 f-spacing-1 fw-bold">${this._data.localTime}</span>
                     <span class="f-size-fluid-6 fw-light">${this._data.timezoneName}</span>
                 </span>
-                ${this._data.city && `<span class="f-size-fluid-5 f-spacing-3 fw-bold text-uppercase">${this._data.currentPosition ?? this._data.city}, ${this._data.countryCode}</span>`}
+                ${this._data.city ? `<span class="f-size-fluid-5 f-spacing-3 fw-bold text-uppercase">${this._data.currentPosition ?? this._data.city}, ${this._data.countryCode}</span>` : ''}
             </h1>
 
             <button class="[ btn ] [ justify-self-start//below-md align-self-start//below-md justify-self-end//above-md align-self-end//above-md ]"

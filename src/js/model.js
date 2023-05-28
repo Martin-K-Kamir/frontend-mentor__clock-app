@@ -1,7 +1,7 @@
 import {getJSON} from './utils.js';
 // import {API_KEY_GEOAPIFY, API_KEY_UNSPLASH} from './keys.js';
-import {API_URL_GEOAPIFY, API_URL_IPAPI, API_URL_QUOTABLE, API_URL_UNSPLASH} from './config.js';
-import { API_KEY_UNSPLASH, API_KEY_GEOAPIFY } from '../../env.js';
+import {API_URL_GEOAPIFY, API_URL_IPAPI, API_URL_IPGEOLOCATION, API_URL_QUOTABLE, API_URL_UNSPLASH} from './config.js';
+import {API_KEY_UNSPLASH, API_KEY_GEOAPIFY, API_KEY_IPGEOLOCATION} from '../../env.js';
 
 
 class State {
@@ -27,12 +27,12 @@ export async function getIPAddress() {
 
 export async function getInitializationData() {
     const promises = [
-        getJSON(`${API_URL_UNSPLASH}?client_id=${API_KEY_UNSPLASH}&orientation=${state.image.viewportOrientation}&query=${state.time.timeOfDay}`),
-        getJSON(`${API_URL_QUOTABLE}`),
-        getJSON(`${API_URL_IPAPI}/${state.location.ipAddress}`),
+        getJSON(`${API_URL_UNSPLASH}/photos/random?client_id=${API_KEY_UNSPLASH}&orientation=${state.image.viewportOrientation}&query=${state.time.timeOfDay}`),
+        getJSON(`${API_URL_QUOTABLE}/quotes/random`),
+        getJSON(`${API_URL_IPGEOLOCATION}/ipgeo?apiKey=${API_KEY_IPGEOLOCATION}&ip=${state.location.ipAddress}`),
     ];
-
     const settledPromises = await Promise.allSettled(promises);
+    console.log(settledPromises)
     return settledPromises.map(promise => {
         if (Array.isArray(promise.value)) {
             promise.value = promise.value[0];
@@ -49,7 +49,7 @@ export function getCurrentPosition() {
             navigator.geolocation.getCurrentPosition(async (position) => {
                 const {latitude, longitude} = position.coords;
                 try {
-                    const response = await fetch(`${API_URL_GEOAPIFY}?lat=${latitude}&lon=${longitude}&format=json&apiKey=${API_KEY_GEOAPIFY}`);
+                    const response = await fetch(`${API_URL_GEOAPIFY}/geocode/reverse?lat=${latitude}&lon=${longitude}&format=json&apiKey=${API_KEY_GEOAPIFY}`);
                     const data = await response.json();
                     resolve({currentPosition: data.results[0].city});
                 } catch (error) {
@@ -158,8 +158,8 @@ export function createLocationObj(data) {
 
     return {
         status : data.status,
-        timezone: _data.timezone,
-        countryCode: _data.countryCode,
+        timezone: _data.time_zone.name,
+        countryCode: _data.country_code2,
         city: _data.city,
     };
 }
