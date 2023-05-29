@@ -44,6 +44,6 @@ Ultimately, I consider this challenge project from Frontend Mentor to be a signi
 - Live Site URL - [Link](https://clockapp-martinkamir.netlify.app)
 - My website - [Martin Kamír](https://martinkamir.com/)
 - Frontend Mentor - [@Martin-K-Kamir](https://www.frontendmentor.io/profile/Martin-K-Kamir)
-- Frontend Mentor Solution - [Solution link](https://www.frontendmentor.io/solutions/devfinder-app-js-scss-vite-pwa-zNcsGwcuwt)
+- Frontend Mentor Solution - [Solution link](https://www.frontendmentor.io/solutions/clock-app-js-scss-vite-hd_4O-8B-s)
 
 Happy coding! 😄
