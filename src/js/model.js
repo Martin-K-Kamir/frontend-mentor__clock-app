@@ -157,7 +157,7 @@ export function createLocationObj(data) {
 
     return {
         status : data.status,
-        timezone: _data.time_zone.name,
+        timezone: _data.time_zone.name.replace(/_/g, " "),
         countryCode: _data.country_code2,
         city: _data.city,
     };
