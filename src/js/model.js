@@ -120,6 +120,7 @@ function getTheme(now) {
 
 function getLocalTime(now) {
     const formatter = new Intl.DateTimeFormat(navigator.language, {
+        hour12: false,
         hour: 'numeric',
         minute: 'numeric',
     });
