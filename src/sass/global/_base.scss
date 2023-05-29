@@ -99,7 +99,7 @@ body {
 }
 
 .app {
-	block-size : 100%;
+	block-size : 100svh;
 }
 
 :where(a, button, input, select) {
