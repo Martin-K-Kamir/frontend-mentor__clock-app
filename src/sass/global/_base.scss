@@ -95,11 +95,10 @@ body {
 	color            : var(--clr-white);
 	background-color : var(--clr-black);
 	overflow         : hidden;
-	block-size       : 100svh;
 }
 
 .app {
-	block-size : 100svh;
+	block-size : 100%;
 }
 
 :where(a, button, input, select) {
