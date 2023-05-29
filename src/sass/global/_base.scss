@@ -107,12 +107,17 @@ body {
 	--_outline-style : var(--outline-style, solid);
 	--_outline-color : var(--outline-color, currentColor);
 
-	text-decoration  : none;
 	color            : inherit;
 
 	&:focus-visible {
 		outline        : var(--_outline-size) var(--_outline-style) var(--_outline-color);
 		outline-offset : calc(var(--_outline-size) * 1 + 1px);
+	}
+
+	@media (--mouse) {
+		&:hover {
+			text-decoration: none;
+		}
 	}
 }
 

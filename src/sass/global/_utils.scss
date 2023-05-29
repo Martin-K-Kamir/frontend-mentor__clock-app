@@ -187,6 +187,11 @@
 	block-size : 100%;
 }
 
+.inset-full {
+	inset : 0;
+	position: absolute;
+}
+
 //////////////////// Paddings ////////////////////
 .pad-1 {
 	padding : var(--size-1);
