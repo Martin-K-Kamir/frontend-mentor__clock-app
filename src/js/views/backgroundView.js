@@ -14,19 +14,19 @@ class BackgroundView extends View {
 
     _generateMarkup() {
         return `
-            <source srcset="${this._data.srcs.map(src => `${src.src} ${src.width}w`)}" type="image/jpg">
-            <img src="${this._data.srcs[1].src}" fetchpriority="high" aria-hidden="true">
+            <source srcset="${this._data.srcs.map(src => `${src.src} ${src.width}w`)}" sizes="100vw" type="image/jpg">
+            <img src="${this._data.srcs[1].src}" alt="" aria-hidden="true">
         `
     }
 
     renderAuthor(data) {
         const markup = `
-            <div class="[ author ] [ f-size-fluid-1 ]">
+            <footer class="[ author ] [ f-size-fluid-1 ]">
                 Photo by
                 <a href="${data.author.url}" target="_blank">${data.author.name}</a>
                 on
                 <a href="https://unsplash.com/" target="_blank">Unsplash</a>
-            </div>
+            </footer>
         `;
 
         document.body.insertAdjacentHTML('beforeend', markup);

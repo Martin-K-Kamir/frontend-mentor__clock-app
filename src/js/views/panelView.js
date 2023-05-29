@@ -17,6 +17,8 @@ class clockView extends View {
     }
 
     _generateMarkup() {
+        this._parentElement.ariaHidden = false;
+
         return `
             <div class="[ panel__wrapper ] [ flow wrapper grid ]" data-grid="switch">
                 ${this._data.timezone ? `<div class="direction-row//below-md align-items-center//below-md">
