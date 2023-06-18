@@ -1,4 +1,4 @@
-# Frontend Mentor - Devfinder
+# Frontend Mentor - Clock app
 
 ![preview of the site](preview.jpg)
 
